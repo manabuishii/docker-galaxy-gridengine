@@ -1,7 +1,7 @@
 # docker-galaxy-gridengine
 Docker Galaxy with Grid Engine
 
-# Plan
+# About Test Plan
 
 share data with ```-v``` .
 
