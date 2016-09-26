@@ -27,4 +27,4 @@ sleep 10
 SGECLIENT=$(docker exec ${GALAXY_CONTAINER_NAME} cat /etc/hosts | grep ${GALAXY_CONTAINER_HOSTNAME})
 docker exec sgemaster bash -c "echo ${SGECLIENT} >> /etc/hosts"
 # Add gridengine client host
-docker exec sgemaster qconf -as ${GALAXY_CONTAINER_NAME} 
+docker exec sgemaster qconf -as ${GALAXY_CONTAINER_HOSTNAME} 
