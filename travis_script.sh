@@ -12,7 +12,7 @@ GALAXY_CONTAINER_NAME=galaxytest
 GALAXY_CONTAINER_HOSTNAME=galaxytest
 
 docker run -d \
-           --link sgemaster:sgemaster
+           --link sgemaster:sgemaster \
            --name ${GALAXY_CONTAINER_NAME} \
            --hostname ${GALAXY_CONTAINER_HOSTNAME} \
            -p 80:80  -e NONUSE="condor" \
