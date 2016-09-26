@@ -17,3 +17,6 @@ or
 
 create new tool which shows just hostname.
 
+or
+
+using selenium, casperjs or some other browser test
