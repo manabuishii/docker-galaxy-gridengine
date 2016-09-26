@@ -19,6 +19,12 @@ docker run -d \
            -v $PWD/job_conf.xml.local:/etc/galaxy/job_conf.xml \
            -v $PWD/export:/export \
            -v $PWD/setup.sh:/galaxy-central/setup.sh \
+           -v $PWD/act_qmaster:/var/lib/gridengine/default/common/act_qmaster
            ${GALAXY_CONTAINER} 
 sleep 10
 
+# Add host setting galaxytest to sgemaster
+SGECLIENT=$(docker exec sgeclient cat /etc/hosts | grep ${GALAXY_CONTAINER_NAME})
+docker exec sgemaster bash -c "echo ${SGECLIENT} >> /etc/hosts"
+# Add gridengine client host
+docker exec sgemaster qconf -as ${GALAXY_CONTAINER_NAME} 
