@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+git:
+  submodules: false
+
+before_install:
+  - docker pull bgruening/galaxy-stable:latest
+  - docker pull manabuishii/docker-sge-master:0.1.0
+
+script:
+  - ./travis_script.sh
