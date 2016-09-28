@@ -23,6 +23,7 @@ docker run -d \
            -v $PWD/act_qmaster:/var/lib/gridengine/default/common/act_qmaster \
            ${GALAXY_CONTAINER} \
            /galaxy-central/setup_tool.sh
+echo "Wait 20sec"
 sleep 20
 
 # Add host setting galaxytest to sgemaster
