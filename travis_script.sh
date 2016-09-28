@@ -18,9 +18,10 @@ docker run -d \
            -p 80:80  -e NONUSE="condor" \
            -v $PWD/job_conf.xml.local:/etc/galaxy/job_conf.xml \
            -v $PWD/export:/export \
-           -v $PWD/setup.sh:/galaxy-central/setup.sh \
+           -v $PWD/setup_tool.sh:/galaxy-central/setup_tool.sh \
            -v $PWD/act_qmaster:/var/lib/gridengine/default/common/act_qmaster \
-           ${GALAXY_CONTAINER} 
+           ${GALAXY_CONTAINER} \
+           /galaxy-central/setup_tool.sh
 sleep 10
 
 # Add host setting galaxytest to sgemaster
