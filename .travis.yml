@@ -9,6 +9,7 @@ git:
 before_install:
   - docker pull bgruening/galaxy-stable:latest
   - docker pull manabuishii/docker-sge-master:0.1.0
+  - docker pull manabuishii/docker-bioblend:0.8.0
 
 script:
   - ./travis_script.sh

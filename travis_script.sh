@@ -1,5 +1,6 @@
 docker pull bgruening/galaxy-stable:latest
 docker pull manabuishii/docker-sge-master:0.1.0
+docker pull manabuishii/docker-bioblend:0.8.0
 
 # start master
 docker run --hostname sgemaster --name sgemaster -d -v $PWD/master_script.sh:/usr/local/bin/master_script.sh  manabuishii/docker-sge-master:0.1.0 /usr/local/bin/master_script.sh
