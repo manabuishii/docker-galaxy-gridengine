@@ -16,7 +16,7 @@ docker run -d \
            --link sgemaster:sgemaster \
            --name ${GALAXY_CONTAINER_NAME} \
            --hostname ${GALAXY_CONTAINER_HOSTNAME} \
-           -p 80:80  -e NONUSE="condor" \
+           -p 20080:80  -e NONUSE="condor" \
            -v $PWD/job_conf.xml.local:/etc/galaxy/job_conf.xml \
            -v $PWD/export:/export \
            -v $PWD/setup_tool.sh:/galaxy-central/setup_tool.sh \
