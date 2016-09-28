@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/manabuishii/docker-galaxy-gridengine.svg?branch=master)](https://travis-ci.org/manabuishii/docker-galaxy-gridengine)
+
 # docker-galaxy-gridengine
 Docker Galaxy with Grid Engine
 
