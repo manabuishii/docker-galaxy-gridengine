@@ -3,6 +3,7 @@ import time
 
 from bioblend.galaxy import GalaxyInstance
 gi = GalaxyInstance('http://galaxytest', key='admin')
+gi.histories.create_history()
 #print gi.tools.get_tool_panel()
 history = gi.histories.get_most_recently_used_history()
 #print dir(history)
