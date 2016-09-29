@@ -17,7 +17,7 @@ docker run -d \
            --name ${GALAXY_CONTAINER_NAME} \
            --hostname ${GALAXY_CONTAINER_HOSTNAME} \
            -p 20080:80  -e NONUSE="condor" \
-           -v $PWD/job_conf.xml.local:/etc/galaxy/job_conf.xml \
+           -v $PWD/job_conf.xml.sge:/etc/galaxy/job_conf.xml \
            -v $PWD/export:/export \
            -v $PWD/outputhostname:/galaxy-central/tools/outputhostname \
            -v $PWD/outputhostname.tool.xml:/galaxy-central/outputhostname.tool.xml \
