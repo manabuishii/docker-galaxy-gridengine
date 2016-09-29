@@ -36,6 +36,6 @@ docker exec sgemaster bash -c "echo ${SGECLIENT} >> /etc/hosts"
 docker exec sgemaster qconf -as ${GALAXY_CONTAINER_HOSTNAME} 
 
 docker run --rm  --link galaxytest:galaxytest -v $PWD/test_outputhostname.py:/work/test_outputhostname.py manabuishii/docker-bioblend:0.8.0 python /work/test_outputhostname.py > out
-grep galaxytest out
+grep sgemaster out
 RET=$?
 exit $RET
