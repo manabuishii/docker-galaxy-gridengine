@@ -16,7 +16,8 @@ tool_output = gi.tools.run_tool(
 )
 
 #print tool_output
-time.sleep(15)
+# TODO create loop check show_history['state_ids']['ok'] is exists
+time.sleep(25)
 show_history=gi.histories.show_history(history_id)
 dataset_id=show_history['state_ids']['ok'][0]
 dataset= gi.datasets.show_dataset(dataset_id)
