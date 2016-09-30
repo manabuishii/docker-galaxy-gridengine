@@ -15,6 +15,7 @@ GALAXY_CONTAINER_NAME=galaxytest
 GALAXY_CONTAINER_HOSTNAME=galaxytest
 
 docker run -d \
+           -e SGE_ROOT=/var/lib/gridengine \
            --link sgemaster:sgemaster \
            --name ${GALAXY_CONTAINER_NAME} \
            --hostname ${GALAXY_CONTAINER_HOSTNAME} \
