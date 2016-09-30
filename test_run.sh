@@ -1,23 +1,20 @@
-#docker pull bgruening/galaxy-stable:latest
-#docker pull manabuishii/docker-sge-master:0.1.0
-#docker pull manabuishii/docker-bioblend:0.8.0
-
 docker stop sgemaster
 docker rm sgemaster
+docker stop galaxytest
+docker rm galaxytest
+sudo rm -rf export
 
 # start master
+mkdir export
+chmod 777 export
 docker run --hostname sgemaster --name sgemaster -d -v $PWD/export:/export -v $PWD/master_script.sh:/usr/local/bin/master_script.sh  manabuishii/docker-sge-master:0.1.0 /usr/local/bin/master_script.sh
 # wait to sge master
-echo "Wait 10"
 sleep 10
 
 # start galaxy
 GALAXY_CONTAINER=bgruening/galaxy-stable:latest
 GALAXY_CONTAINER_NAME=galaxytest
 GALAXY_CONTAINER_HOSTNAME=galaxytest
-docker stop galaxytest
-docker rm galaxytest
-
 
 docker run -d \
            -e SGE_ROOT=/var/lib/gridengine \
