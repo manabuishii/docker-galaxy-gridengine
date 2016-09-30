@@ -23,6 +23,9 @@ or
 
 using selenium, casperjs or some other browser test
 
+# log file in SGE master
+
+To check GridEngine error
 
 ```
 /var/spool/gridengine/execd/sgemaster/messages
