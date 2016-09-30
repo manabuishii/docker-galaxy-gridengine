@@ -16,9 +16,8 @@ tool_output = gi.tools.run_tool(
 )
 
 #print tool_output
-time.sleep(5)
+time.sleep(15)
 show_history=gi.histories.show_history(history_id)
-#print show_history['state_ids']
 dataset_id=show_history['state_ids']['ok'][0]
 dataset= gi.datasets.show_dataset(dataset_id)
 print dataset['peek']
