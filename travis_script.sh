@@ -1,7 +1,10 @@
 # start master
-mkdir export
-chmod 777 export
-docker run --hostname sgemaster --name sgemaster -d -v $PWD/export:/export -v $PWD/master_script.sh:/usr/local/bin/master_script.sh  manabuishii/docker-sge-master:0.1.0 /usr/local/bin/master_script.sh
+
+# We use a temporary directory as an export dir that will hold the shared data b
+# galaxy and gridengine:
+EXPORT=`mktemp --directory`
+chmod 777 ${EXPORT}
+docker run --hostname sgemaster --name sgemaster -d -v ${EXPORT}:/export -v $PWD/master_script.sh:/usr/local/bin/master_script.sh  manabuishii/docker-sge-master:0.1.0 /usr/local/bin/master_script.sh
 # wait to sge master
 sleep 10
 
@@ -17,7 +20,7 @@ docker run -d \
            --hostname ${GALAXY_CONTAINER_HOSTNAME} \
            -p 20080:80  -e NONUSE="condor" \
            -v $PWD/job_conf.xml.sge:/etc/galaxy/job_conf.xml \
-           -v $PWD/export:/export \
+           -v ${EXPORT}:/export \
            -v $PWD/outputhostname:/galaxy-central/tools/outputhostname \
            -v $PWD/outputhostname.tool.xml:/galaxy-central/outputhostname.tool.xml \
            -v $PWD/setup_tool.sh:/galaxy-central/setup_tool.sh \
