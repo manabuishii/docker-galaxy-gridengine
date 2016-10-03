@@ -16,9 +16,15 @@ tool_output = gi.tools.run_tool(
 )
 
 #print tool_output
-# TODO create loop check show_history['state_ids']['ok'] is exists
-time.sleep(25)
-show_history=gi.histories.show_history(history_id)
-dataset_id=show_history['state_ids']['ok'][0]
-dataset= gi.datasets.show_dataset(dataset_id)
-print dataset['peek']
+
+# loop until job finish timeout is 40sec as same as slurm
+result="noresult"
+for x in range(0, 40):
+    time.sleep(1)
+    show_history=gi.histories.show_history(history_id)
+    if len(show_history['state_ids']['ok']) > 0:
+        dataset_id=show_history['state_ids']['ok'][0]
+        dataset= gi.datasets.show_dataset(dataset_id)
+        result=dataset['peek']
+        break
+print result
